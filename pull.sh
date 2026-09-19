@@ -1,26 +1,28 @@
-#!/data/data/com.termux/files/usr/bin/bash
-# push.sh — commit all changes and push to GitHub
-# usage: ./push.sh "your commit message"
-
+#!/usr/bin/env bash
 set -e
 
-MSG="${1:-update from termux}"
+# Try these paths in order, use the first one that's a git repo
+CANDIDATES=(
+    "$HOME/the repo folder"
+    "$HOME/ai"
+    "$HOME/AI-Agent-Security-Red-Team-Curriculum"
+)
 
-echo "==> Status before commit:"
-git status -sb
+DIR=""
+for c in "${CANDIDATES[@]}"; do
+    if [ -d "$c/.git" ]; then
+        DIR="$c"
+        break
+    fi
+done
 
-echo "==> Staging all changes..."
-git add -A
-
-if git diff --cached --quiet; then
-  echo "==> Nothing to commit. Pushing any existing commits..."
-else
-  echo "==> Committing: $MSG"
-  git commit -m "$MSG"
+if [ -z "$DIR" ]; then
+    echo "No repo found. Looked in:"
+    printf '  %s\n' "${CANDIDATES[@]}"
+    exit 1
 fi
 
-echo "==> Pushing to origin..."
-git push
-
-echo "==> Done. Latest commits:"
-git log --oneline -5
+echo "Pulling in: $DIR"
+cd "$DIR"
+git pull
+echo "Done. Now at: $(git log -1 --oneline)"
