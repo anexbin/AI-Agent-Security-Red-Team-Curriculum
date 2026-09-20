@@ -29,53 +29,55 @@ Full project-by-project detail (purpose, diagrams, implementation notes, test ca
 
 ## Curriculum roadmap
 
+**Pacing note:** the schedule below is sized for someone with about **10 hours/week** to give this (e.g. two ~5-hour sessions, or an hour on weeknights plus a longer weekend block). The original per-phase effort estimates assumed a much heavier weekly commitment (~20 hrs/week); everything here has been roughly doubled to fit a steady 10 hrs/week pace instead of a near-full-time one. At 10 hrs/week, the gantt chart's single-path schedule below runs about **90 weeks (~21 months)**, and the full effort ranges in the table underneath put the realistic range at **~84–128 weeks (roughly 1.6–2.5 years)**, depending on how much you linger on any given phase. Don't compress the safety checklists or evidence-collection steps to hit a faster pace — those are the parts of each project that are easiest to skip and most important not to.
+
 ```mermaid
 gantt
     dateFormat  YYYY-MM-DD
-    title Curriculum Timeline
+    title Curriculum Timeline (10 hrs/week pace)
     section Phase 0: AI Foundations
-    Projects 01-06            :p0, 2026-10-01, 4w
+    Projects 01-06            :p0, 2026-10-01, 8w
     section Phase 1: Core Agent Capabilities
-    Projects 07-10            :p1, after p0, 2w
+    Projects 07-10            :p1, after p0, 4w
     section Phase 2: Systems Agents (Linux)
-    Projects 11-15            :p2, after p1, 4w
+    Projects 11-15            :p2, after p1, 8w
     section Phase 3: Networking Agents
-    Projects 16-20            :p3, after p2, 4w
+    Projects 16-20            :p3, after p2, 8w
     section Phase 4: Web/API Agents
-    Projects 21-25            :p4, after p3, 3w
+    Projects 21-25            :p4, after p3, 6w
     section Phase 5: Identity/Access Agents
-    Projects 26-29            :p5, after p4, 3w
+    Projects 26-29            :p5, after p4, 6w
     section Phase 6: Security Analysis Agents
-    Projects 30-33            :p6, after p5, 4w
+    Projects 30-33            :p6, after p5, 8w
     section Phase 7: Vulnerable AI Labs
-    Projects 34-40            :p7, after p6, 5w
+    Projects 34-40            :p7, after p6, 10w
     section Phase 8: Agent Security Scanners
-    Projects 41-44            :p8, after p7, 3w
+    Projects 41-44            :p8, after p7, 6w
     section Phase 9: Attack Automation Agents
-    Projects 45-50            :p9, after p8, 5w
+    Projects 45-50            :p9, after p8, 10w
     section Phase 10: Autonomous Reasoning
-    Projects 51-54            :p10, after p9, 2w
+    Projects 51-54            :p10, after p9, 4w
     section Phase 11: Multi-Agent Red Team
-    Projects 55-58            :p11, after p10, 2w
+    Projects 55-58            :p11, after p10, 4w
     section Phase 12: Final Security Platform
-    Projects 59-60            :p12, after p11, 4w
+    Projects 59-60            :p12, after p11, 8w
 ```
 
-| Phase | Projects | Focus | Key skills | Prerequisites | Effort |
+| Phase | Projects | Focus | Key skills | Prerequisites | Effort (at 10 hrs/wk) |
 |---|---|---|---|---|---|
-| 0 | 01–06 | AI-native programming foundation | Agent loops, tool calling, structured output, memory, multi-agent basics | Python basics, LLM API access | 4–6 wk |
-| 1 | 07–10 | Real capabilities | Filesystem, sandboxed code exec, API/DB integration | Phase 0, basic OS/SQL | 4 wk |
-| 2 | 11–15 | Systems (Linux) agents | Process/permission/config auditing, container security | Phase 0–1, Linux CLI | 4–6 wk |
-| 3 | 16–20 | Networking agents | Nmap/DNS/HTTP analysis, topology mapping, anomaly detection | Phase 0–2, basic networking | 4–6 wk |
-| 4 | 21–25 | Web/API security agents | AuthN/AuthZ analysis, API security, business-logic flaws | Phase 3, web/HTTP basics | 3–5 wk |
-| 5 | 26–29 | Identity & access-control agents | RBAC/ABAC modeling, privilege graphs, trust boundaries | Phase 4, RBAC concepts | 2–4 wk |
-| 6 | 30–33 | Security analysis agents | Vuln triage, evidence correlation, attack-path reasoning, reporting | Phase 4–5, pentest fundamentals | 3–5 wk |
-| 7 | 34–40 | Vulnerable AI-agent labs | Prompt injection (direct/indirect), tool abuse, memory poisoning, excessive agency | All above + isolated lab env | 4–6 wk |
-| 8 | 41–44 | Agent security scanners | Architecture/permission/trust-boundary analysis, automated threat modeling | Phase 0–7, OWASP threat modeling | 2–4 wk |
-| 9 | 45–50 | Attack automation agents | Prompt-attack generation, policy evaluation, adaptive testing, fuzzing | Phase 6–8, scripting | 3–5 wk |
-| 10 | 51–54 | Autonomous security reasoning | Hypothesis engines, attack graphs, evidence logging, finding verification | Phase 8–9, graph algorithms | 3–4 wk |
-| 11 | 55–58 | Multi-agent red team | Specialized agent teams, orchestration, human-in-the-loop oversight | Phase 0–10 | 2–3 wk |
-| 12 | 59–60 | Final security platform | End-to-end recon → threat model → test → verify → report pipeline | Entire curriculum | 4–6 wk |
+| 0 | 01–06 | AI-native programming foundation | Agent loops, tool calling, structured output, memory, multi-agent basics | Python basics, LLM API access | 8–12 wk |
+| 1 | 07–10 | Real capabilities | Filesystem, sandboxed code exec, API/DB integration | Phase 0, basic OS/SQL | 8 wk |
+| 2 | 11–15 | Systems (Linux) agents | Process/permission/config auditing, container security | Phase 0–1, Linux CLI | 8–12 wk |
+| 3 | 16–20 | Networking agents | Nmap/DNS/HTTP analysis, topology mapping, anomaly detection | Phase 0–2, basic networking | 8–12 wk |
+| 4 | 21–25 | Web/API security agents | AuthN/AuthZ analysis, API security, business-logic flaws | Phase 3, web/HTTP basics | 6–10 wk |
+| 5 | 26–29 | Identity & access-control agents | RBAC/ABAC modeling, privilege graphs, trust boundaries | Phase 4, RBAC concepts | 4–8 wk |
+| 6 | 30–33 | Security analysis agents | Vuln triage, evidence correlation, attack-path reasoning, reporting | Phase 4–5, pentest fundamentals | 6–10 wk |
+| 7 | 34–40 | Vulnerable AI-agent labs | Prompt injection (direct/indirect), tool abuse, memory poisoning, excessive agency | All above + isolated lab env | 8–12 wk |
+| 8 | 41–44 | Agent security scanners | Architecture/permission/trust-boundary analysis, automated threat modeling | Phase 0–7, OWASP threat modeling | 4–8 wk |
+| 9 | 45–50 | Attack automation agents | Prompt-attack generation, policy evaluation, adaptive testing, fuzzing | Phase 6–8, scripting | 6–10 wk |
+| 10 | 51–54 | Autonomous security reasoning | Hypothesis engines, attack graphs, evidence logging, finding verification | Phase 8–9, graph algorithms | 6–8 wk |
+| 11 | 55–58 | Multi-agent red team | Specialized agent teams, orchestration, human-in-the-loop oversight | Phase 0–10 | 4–6 wk |
+| 12 | 59–60 | Final security platform | End-to-end recon → threat model → test → verify → report pipeline | Entire curriculum | 8–12 wk |
 
 ## Repo structure
 
@@ -149,7 +151,7 @@ docker compose up -d      # e.g. DVWA / Juice Shop on localhost only
 ```
 
 **4. Work phase by phase**
-Start at `phase-00-ai-foundations/01-agent-runtime-skeleton/`, read its README, implement, run its test cases, and check off the safety checklist before moving on. Each phase builds directly on the last — don't skip ahead into vulnerable-lab or attack-automation phases without the foundational trust-boundary thinking from Phases 0–6.
+Start at `phase-00-ai-foundations/01-agent-runtime-skeleton/`, read its README, implement, run its test cases, and check off the safety checklist before moving on. Each phase builds directly on the last — don't skip ahead into vulnerable-lab or attack-automation phases without the foundational trust-boundary thinking from Phases 0–6. At a 10 hrs/week pace, resist the urge to rush a phase just to keep the calendar on track; a shaky Phase 0–6 foundation shows up as confusion (or unsafe shortcuts) once you hit the offensive phases.
 
 ## Working conventions
 
