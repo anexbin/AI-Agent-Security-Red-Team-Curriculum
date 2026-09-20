@@ -1,21 +1,18 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/bash
 set -e
 
-CANDIDATES=(
-    "$HOME/the repo folder"
-    "$HOME/ai"
-)
+DIR="$HOME/AI-Agent-Security-Red-Team-Curriculum"
 
-DIR=""
-for c in "${CANDIDATES[@]}"; do
-    [ -d "$c/.git" ] && DIR="$c" && break
-done
-
-[ -z "$DIR" ] && { echo "No repo found."; exit 1; }
+if [ ! -d "$DIR/.git" ]; then
+    echo "No repo at $DIR — cloning fresh..."
+    git clone git@github.com:anexbin/AI-Agent-Security-Red-Team-Curriculum.git "$DIR"
+else
+    cd "$DIR"
+    echo "Fetching..."
+    git fetch origin
+    git reset --hard origin/main
+    git clean -fd
+fi
 
 cd "$DIR"
-echo "Hard-resetting $DIR to match origin..."
-git fetch origin
-git reset --hard origin/main
-git clean -fd          # delete untracked files/dirs
 echo "Done. Now at: $(git log -1 --oneline)"
